@@ -1,0 +1,14 @@
+{
+  "devDependencies": {
+    "prettier": "^3.6.2",
+    "sass": "^1.89.2",
+    "stylelint": "^16.21.1",
+    "stylelint-config-standard-scss": "^14.0.0",
+    "stylelint-prettier": "^5.0.3"
+  },
+  "scripts": {
+    "sass:watch": "sass --watch styles.scss styles.css",
+    "lint:scss": "stylelint '*.scss' '**/*.scss'",
+    "format": "prettier --write '**/*.{scss,css,html,js}'"
+  }
+}

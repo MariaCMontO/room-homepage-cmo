@@ -1,0 +1,79 @@
+@use 'mixins' as *;
+
+.slicer {
+  @include media(md){
+    @include flex;
+    height: 100%;
+  }
+  &__image-container {
+    position: relative;
+    z-index: 0;
+  }
+
+  &__image {
+    width: 100%;
+    display: block;
+    @include media(md){
+      width: auto;
+    }
+  }
+
+  &__buttons-container {
+    position: absolute;
+    top: 100%;
+    transform: translateY(-100%);
+    right: 0;
+    z-index: 10;
+    display: flex;
+     @include media(md){
+      transform: translate(100%, -100%);
+    }
+  }
+
+  &__previous-image-button,
+  &__next-image-button {
+    background-color: black;
+    border-radius: 0;
+    width: clamp(5.6rem, 10vw, 8rem);
+    padding-block: clamp(1.8rem,4vw,2.5rem);
+    padding-inline: clamp(2.3rem, 4vw, 3.3rem);
+   
+    &:hover {
+      background-color: gray;
+    }
+  }
+
+  &__previous-image-icon,
+  &__next-image-icon {
+    width: 100%;
+  }
+
+  &__text-container {
+    @include container(clamp(3rem,10vw, 9rem), 5.5rem);
+    @include flex(column,  $justify:left, $align:left, $gap: 1.5rem);
+  }
+
+  &__title {
+    @include titulos($font-size:clamp(3.7rem, 5vw, 5rem), $line-height:clamp(3.5rem, 5vw, 4.5rem));
+  }
+
+  &__description {
+    @include parrafos;
+  }
+
+  &__shop-button {
+    color: black;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    letter-spacing: 1.15rem;
+    font-weight: 590;
+    text-align: left;
+    padding-inline: 0;
+    padding-block: 2rem;
+    transition: color 0.3s ease;
+
+    &:hover{
+      color: gray;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+@use 'mixins' as *;
+@use 'slicer';
+
+.about {
+  @include media(md) {
+    @include grid($columns:3);
+    grid-template-columns: auto 1fr auto;
+    height: 100%
+  }
+  &__text-container {
+    @include container(clamp(3rem,10vw,4.2rem), 5.5rem);
+    @include flex(column, $justify: left, $align: left, $gap: 1.5rem);
+  }
+
+  &__title {
+    @include titulos(1.3rem, 700, 3.5rem,0.5rem, uppercase);
+    text-align: left;
+  }
+
+  &__description {
+    @include parrafos;
+  }
+
+  &__dark-image,
+  &__light-image {
+    height: 100%;
+    width: 100%;
+  }
+}

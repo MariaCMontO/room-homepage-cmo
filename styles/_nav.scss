@@ -1,0 +1,60 @@
+@use 'mixins' as *;
+
+.nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  @include container(2rem, 4rem);
+  @include grid($columns: 3);
+  @include media(md) {
+    width: 50%;
+    @include container(6rem, 6rem);
+    @include grid($columns: 2);
+    grid-template-columns: auto 1fr;
+    gap: 5.5rem;
+  }
+
+  &__menu-button {
+    justify-self: left;
+    @include media(md) {
+      display: none;
+    }
+  }
+
+  &__logo-icon {
+    justify-self: center;
+    @include media(md) {
+       width: max-content;
+      justify-self: left;
+    }
+  }
+
+  &__menu-container {
+    opacity: 0;
+    @include media(md) {
+      opacity: 1;
+      width: 100%;
+      justify-self: start;
+    }
+  }
+
+  &__menu-text{
+    @include media(md){
+        @include flex($justify:start, $gap:2rem);
+    }
+  }
+
+  &__menu-item {
+    color: white;
+    font-size: 1.6rem;
+    @include hover-underline(white);
+  }
+
+  &__close-button {
+    @include media(md) {
+      display: none;
+    }
+  }
+}
