@@ -26,30 +26,47 @@
   &__logo-icon {
     justify-self: center;
     @include media(md) {
-       width: max-content;
+      width: max-content;
       justify-self: left;
     }
   }
 
   &__menu-container {
-    opacity: 0;
+    display: none;
     @include media(md) {
-      opacity: 1;
+      display: block;
       width: 100%;
       justify-self: start;
     }
+
+    &--displayed {
+      background-color: white;
+      @include flex(row, $justify:space-between);
+      padding-inline: 2.7rem;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      width: 100%;
+      height: 11rem;
+    }
   }
 
-  &__menu-text{
-    @include media(md){
-        @include flex($justify:start, $gap:2rem);
-    }
+  &__menu-text {
+    @include flex($justify: start, $gap: 2rem);
   }
 
   &__menu-item {
     color: white;
     font-size: 1.6rem;
     @include hover-underline(white);
+
+    &--displayed{
+      color: black;
+      font-size: 1.5rem;
+      font-weight: 600;
+      @include hover-underline(black);
+    }
   }
 
   &__close-button {
